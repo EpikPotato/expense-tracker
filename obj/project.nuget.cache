@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "qAkj/VFg3uU=",
+  "dgSpecHash": "8uyapEITDVI=",
   "success": true,
   "projectFilePath": "C:\\Users\\manh duc\\Documents\\expense\\expense\\expense.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\manh duc\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\manh duc\\.nuget\\packages\\extended.wpf.toolkit\\4.6.1\\extended.wpf.toolkit.4.6.1.nupkg.sha512",
     "C:\\Users\\manh duc\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\manh duc\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\manh duc\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

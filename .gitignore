@@ -1,0 +1,36 @@
+# Ignore build and bin directories
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.csproj.user
+
+# Ignore IDE settings
+.vs/
+.vscode/
+
+# Ignore compiled files
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.log
+
+# Ignore backup and output files
+*.bak
+*.swp
+*.class
+
+# Ignore packages
+packages/
+
+# Ignore publish output
+publish/
+expense.db
