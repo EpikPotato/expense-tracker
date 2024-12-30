@@ -9,11 +9,49 @@
         Title="MainWindow"
         Height="450"
         Width="800">
-    <Grid> 
+    <Grid ShowGridLines="true"> 
      <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
     </Grid.RowDefinitions>
-    
+        <Grid Grid.Row = "0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row = "0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />                   
+                </Grid.ColumnDefinitions>
+                <TextBlock TextAlignment="Center" Grid.Row = "0" Grid.Column = "0" Grid.ColumnSpan = "3"> Expense Tracker </TextBlock>
+                <DatePicker Name="datePicker" Grid.Row = "0" Grid.Column = "4"/>
+            </Grid>
+            <Grid Grid.Row = "1"> 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                
+            </Grid.ColumnDefinitions>
+                <Button  Grid.Column = "0" >Add</Button>    
+                <Button  Grid.Column = "1">Edit</Button>    
+                <Button  Grid.Column = "2">Statistics </Button>    
+                
+            </Grid> 
+        </Grid> 
+        <Grid Grid.Row = "1" >
+            <DataGrid Name ="expenseTable"  IsReadOnly = "True" AutoGenerateColumns="false" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="2*" />
+                <DataGridTextColumn Header="Date" Binding="{Binding CreatedDate}" Width="Auto" />
+                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="Auto" />
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="2*" />
+            </DataGrid.Columns>
+            </DataGrid>
+        </Grid> 
+        
      </Grid>
 </Window>
