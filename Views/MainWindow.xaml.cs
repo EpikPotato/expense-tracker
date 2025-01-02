@@ -18,11 +18,8 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        DbConnection.CreateConnection();
+        // DbConnection.CreateConnection();
         InitializeComponent();
-        var expenses = new List<Expense>();
-        expenses.Add(new Expense("Food ", DateTime.Now, 500000, Type.Expense)); //temp data
-        expenseTable.ItemsSource = expenses;
 
 
     }
