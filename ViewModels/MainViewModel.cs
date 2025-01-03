@@ -2,6 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using expense.Models;
+using expense.Views;
 
 namespace expense.ViewModels
 {
@@ -23,6 +24,8 @@ namespace expense.ViewModels
 
         private void AddItem()
         {
+            AddWindow addWindow = new AddWindow();
+            addWindow.Show();
             Expenses.Add(new Expense("Food" , DateTime.Now , 500000 , Type.Expense));
             Expenses.Add(new Expense("Salary" , DateTime.Now , 1100000 , Type.Income));
 
