@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using expense.Database;
 using expense.Models;
 using expense.Views;
 
@@ -19,7 +20,7 @@ namespace expense.ViewModels
         
         public MainViewModel()
         {
-            Expenses = new ObservableCollection<Expense>();
+            Expenses = DatabaseService.GetExpenses();
         }
 
         private void AddItem()

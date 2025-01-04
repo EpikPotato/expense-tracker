@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using expense.Database;
 
 namespace expense;
 
@@ -18,7 +19,7 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        // DbConnection.CreateConnection();
+        DbConnection.CreateConnection();
         InitializeComponent();
 
 

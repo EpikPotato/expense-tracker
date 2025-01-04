@@ -28,6 +28,9 @@ namespace expense.Models
             Amount = amount;
             Type = type;
         }
-
+        public override string ToString()
+        {
+            return $"Name: {Name}, Amount: {Amount:C}, Date: {CreatedDate:yyyy-MM-dd} , Type: {Type}" ;
+        }
     }
 }
