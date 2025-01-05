@@ -1,0 +1,15 @@
+# Exclude IDE files
+.idea/
+.vscode/
+*.iml
+
+# Exclude build files
+bin/
+obj/
+*.dll
+*.exe
+*.log
+
+# Exclude other files like datasource.xml and indexlayout.xml if applicable
+datasource.xml
+indexlayout.xml

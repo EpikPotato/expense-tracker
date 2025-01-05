@@ -25,11 +25,28 @@ namespace expense.ViewModels
 
         private void AddItem()
         {
-            AddWindow addWindow = new AddWindow();
-            addWindow.Show();
-            Expenses.Add(new Expense("Food" , DateTime.Now , 500000 , Type.Expense));
-            Expenses.Add(new Expense("Salary" , DateTime.Now , 1100000 , Type.Income));
-
+            var vm = new AddViewModel();
+            AddWindow addWindow = new AddWindow
+            {
+                DataContext = vm
+            };
+            
+            vm.OnRequestClose += (s, e) =>
+            {
+                ReloadExpense(); 
+                addWindow.Close();
+                
+            };
+            addWindow.ShowDialog();
+        }
+        private void ReloadExpense()
+        {
+            Expenses.Clear();  
+            var updatedExpenses = DatabaseService.GetExpenses();    // Reassign will not update the UI
+            foreach (var expense in updatedExpenses)
+            {
+                Expenses.Add(expense);
+            }
         }
     }
 }
