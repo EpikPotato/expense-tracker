@@ -1,11 +1,14 @@
 using System.ComponentModel;
+using System.Windows;
 using expense.Database;
 using expense.Models;
+using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 
 namespace expense.ViewModels;
 
 public class AddViewModel 
 {
+    public event EventHandler OnRequestClose;
     public string Name { get; set; }
     public DateTime CreatedDate { get; set; }
 
@@ -17,7 +20,27 @@ public class AddViewModel
     
     private void saveExpense()
     {
-        Expense expense = new Expense(Name, CreatedDate, Amount, Type);
-        DatabaseService.InsertExpense(expense);
+        if (ValidateExpense())
+        {
+            Expense expense = new Expense(Name, CreatedDate, Amount, Type);
+            DatabaseService.InsertExpense(expense);
+            OnRequestClose?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            // Display the alert box
+            MessageBox.Show("Please make sure all fields are filled correctly.", 
+                "Validation Error", 
+                MessageBoxButton.OK, 
+                MessageBoxImage.Error);
+        }
+    }
+
+  
+
+    private Boolean ValidateExpense()
+    {
+        if (Amount < 0) return false;
+        return true;
     }
 }
