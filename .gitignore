@@ -10,7 +10,7 @@ obj/
 # Ignore IDE settings
 .vs/
 .vscode/
-
+.idea/
 # Ignore compiled files
 *.dll
 *.exe
@@ -22,6 +22,7 @@ obj/
 *.tmp
 *.temp
 *.log
+
 
 # Ignore backup and output files
 *.bak
