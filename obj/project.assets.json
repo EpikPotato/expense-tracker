@@ -1326,11 +1326,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manh duc\\Documents\\expense\\expense\\expense.csproj",
+      "projectUniqueName": "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\expense.csproj",
       "projectName": "expense",
-      "projectPath": "C:\\Users\\manh duc\\Documents\\expense\\expense\\expense.csproj",
+      "projectPath": "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\expense.csproj",
       "packagesPath": "C:\\Users\\manh duc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\manh duc\\Documents\\expense\\expense\\obj\\",
+      "outputPath": "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\manh duc\\AppData\\Roaming\\NuGet\\NuGet.Config"

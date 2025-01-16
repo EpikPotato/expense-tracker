@@ -15,14 +15,14 @@ public class EditViewModel
     public Type Type { get; set; }
     
     public List<Type> Types => new List<Type> { Type.Expense, Type.Income }; // ComboBox Data
-    public RelayCommand SaveExpense => new RelayCommand(execute => { saveExpense();} , canExecute => { return true; });
+    public RelayCommand EditExpense => new RelayCommand(execute => { SaveExpense();} , canExecute => { return true; });
     
-    private void saveExpense()
+    private void SaveExpense()
     {
         if (ValidateExpense())
         {
-            Expense expense = new Expense(Name, CreatedDate, Amount, Type);
-            DatabaseService.InsertExpense(expense);
+            Expense expense = new Expense(Id,Name, CreatedDate, Amount, Type);
+            DatabaseService.EditExpense(expense);
             OnRequestClose?.Invoke(this, EventArgs.Empty);
         }
         else
@@ -35,15 +35,16 @@ public class EditViewModel
         }
     }
 
-    /*public EditViewModel(int id)
-    {
-        Id = id;
-      //  Expense temp = DatabaseService.GetExpenseById(Id);
-        Name = temp.Name;
-        CreatedDate = temp.CreatedDate;
-        Amount = temp.Amount;
-        Type = temp.Type;
-    } */
+    public EditViewModel(Expense selectedExpense)
+    { 
+        Id = selectedExpense.Id;
+        Name = selectedExpense.Name;
+        CreatedDate = selectedExpense.CreatedDate;
+        Amount = selectedExpense.Amount;
+        Type = selectedExpense.Type;
+
+        Console.WriteLine("ID: " + Id);
+    }
   
 
     private Boolean ValidateExpense()

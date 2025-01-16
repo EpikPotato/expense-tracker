@@ -7,9 +7,7 @@
         xmlns:viewModels="clr-namespace:expense.ViewModels"
         mc:Ignorable="d"
         Title="EditWindow" Height="450" Width="800">
-        <Window.DataContext>
-            <viewModels:EditViewModel />
-        </Window.DataContext>
+        
         <Grid Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -56,6 +54,6 @@
                     
                 </ComboBox>
             </Grid>
-            <Button Grid.Row="2" Margin="30" Width="60" Command="{Binding SaveExpense}"> Confirm </Button>
+            <Button Grid.Row="2" Margin="30" Width="60" Command="{Binding EditExpense}"> Confirm </Button>
         </Grid>
 </Window>

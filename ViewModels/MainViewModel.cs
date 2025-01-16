@@ -44,8 +44,10 @@ namespace expense.ViewModels
 
         private void EditItem()
         {
-            
-            var vm = new EditViewModel();
+            if (SelectedExpense == null) return;
+
+            Console.WriteLine(SelectedExpense.Id);
+            var vm = new EditViewModel(SelectedExpense);
             
             
             EditWindow editWindow = new EditWindow

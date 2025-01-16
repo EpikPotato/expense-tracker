@@ -56,7 +56,24 @@ namespace expense.Database
                 }
             }
         }
+        public static void EditExpense(Expense expense)
+        {
+            using (var connection = DbConnection.CreateConnection())
+            {
+                string query =
+                    "UPDATE Expenses Set Name = @Name, CreatedDate = @CreatedDate, Amount = @Amount , Type = @Type WHERE Id = @Id";
 
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", expense.Name);
+                    command.Parameters.AddWithValue("@CreatedDate", expense.CreatedDate);
+                    command.Parameters.AddWithValue("@Amount", expense.Amount);
+                    command.Parameters.AddWithValue("@Type", expense.Type.ToString());
+                    command.Parameters.AddWithValue("@Id", expense.Id);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
         public static Expense GetExpenseById(int id)
         {
             Expense expense = null;
@@ -78,13 +95,13 @@ namespace expense.Database
 
 
                             expense = new Expense(id, name, createdDate, amount, type);
-
+                            
                         }
                     }
                 }
 
             }
-
+            Console.WriteLine("Done ");
             return expense;
         }
     }
