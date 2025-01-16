@@ -47,9 +47,10 @@
             </Grid> 
         </Grid> 
         <Grid Grid.Row="1">
-            <DataGrid Name="ExpenseTable" IsReadOnly="True" AutoGenerateColumns="false" ItemsSource="{Binding Expenses}">
+            <DataGrid Name="ExpenseTable" IsReadOnly="True" AutoGenerateColumns="false" ItemsSource="{Binding Expenses}" SelectedItem="{Binding SelectedExpense}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="2*" />
+                    
                     <DataGridTextColumn Header="Date" Binding="{Binding CreatedDate}" Width="Auto" />
                     <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="Auto" />
                     <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="2*" />

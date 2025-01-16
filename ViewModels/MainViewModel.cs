@@ -11,13 +11,14 @@ namespace expense.ViewModels
     {
         
         public event PropertyChangedEventHandler? PropertyChanged;
+        public Expense? SelectedExpense{ get; set; }
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         public ObservableCollection<Expense> Expenses { get; set; }
         public RelayCommand AddExpense => new RelayCommand(execute => { AddItem();} , canExecute => { return true; });
-        public RelayCommand EditExpense => new RelayCommand(execute => { EditItem();} , canExecute => { return true; });
+        public RelayCommand EditExpense => new RelayCommand(execute => {EditItem();} , canExecute => { return true; });
 
         public MainViewModel()
         {
@@ -43,10 +44,14 @@ namespace expense.ViewModels
 
         private void EditItem()
         {
+            
             var vm = new EditViewModel();
+            
+            
             EditWindow editWindow = new EditWindow
             {
-                DataContext = vm
+                DataContext = vm, 
+                
             };
             vm.OnRequestClose += (s, e) =>
             {

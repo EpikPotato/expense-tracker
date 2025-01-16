@@ -8,6 +8,7 @@ public class EditViewModel
 {
     public event EventHandler OnRequestClose;
     public string Name { get; set; }
+    public int Id { get; set; }
     public DateTime CreatedDate { get; set; }
 
     public double Amount {get; set;}
@@ -34,6 +35,15 @@ public class EditViewModel
         }
     }
 
+    /*public EditViewModel(int id)
+    {
+        Id = id;
+      //  Expense temp = DatabaseService.GetExpenseById(Id);
+        Name = temp.Name;
+        CreatedDate = temp.CreatedDate;
+        Amount = temp.Amount;
+        Type = temp.Type;
+    } */
   
 
     private Boolean ValidateExpense()
