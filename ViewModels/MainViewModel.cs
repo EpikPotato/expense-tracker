@@ -17,7 +17,8 @@ namespace expense.ViewModels
         }
         public ObservableCollection<Expense> Expenses { get; set; }
         public RelayCommand AddExpense => new RelayCommand(execute => { AddItem();} , canExecute => { return true; });
-        
+        public RelayCommand EditExpense => new RelayCommand(execute => { EditItem();} , canExecute => { return true; });
+
         public MainViewModel()
         {
             Expenses = DatabaseService.GetExpenses();
@@ -38,6 +39,22 @@ namespace expense.ViewModels
                 
             };
             addWindow.ShowDialog();
+        }
+
+        private void EditItem()
+        {
+            var vm = new EditViewModel();
+            EditWindow editWindow = new EditWindow
+            {
+                DataContext = vm
+            };
+            vm.OnRequestClose += (s, e) =>
+            {
+                ReloadExpense();
+                editWindow.Close();
+            };
+            editWindow.ShowDialog();
+
         }
         private void ReloadExpense()
         {
