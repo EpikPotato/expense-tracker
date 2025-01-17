@@ -104,5 +104,21 @@ namespace expense.Database
             Console.WriteLine("Done ");
             return expense;
         }
+        public static void DeleteExpense(int id)
+        {
+            using (var connection = DbConnection.CreateConnection())
+            {
+                string query =
+                    "DELETE FROM Expenses where Id=@Id";
+
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("Id", id);
+                
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
     }
+    
 }

@@ -16,7 +16,7 @@ public class EditViewModel
     
     public List<Type> Types => new List<Type> { Type.Expense, Type.Income }; // ComboBox Data
     public RelayCommand EditExpense => new RelayCommand(execute => { SaveExpense();} , canExecute => { return true; });
-    
+    public RelayCommand DeleteExpense => new RelayCommand(execute => {DeleteItem();} , canExecute => { return true; });
     private void SaveExpense()
     {
         if (ValidateExpense())
@@ -45,7 +45,13 @@ public class EditViewModel
 
         Console.WriteLine("ID: " + Id);
     }
-  
+
+    private void DeleteItem()
+    {
+        Console.WriteLine("Delete Item" + Id);
+        DatabaseService.DeleteExpense(Id);
+        OnRequestClose?.Invoke(this, EventArgs.Empty);
+    }
 
     private Boolean ValidateExpense()
     {

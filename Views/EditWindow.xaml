@@ -54,6 +54,16 @@
                     
                 </ComboBox>
             </Grid>
-            <Button Grid.Row="2" Margin="30" Width="60" Command="{Binding EditExpense}"> Confirm </Button>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="30" Width="60" HorizontalAlignment="Center"  Command="{Binding EditExpense}"> Confirm </Button>
+                <Button Grid.Column="1" Margin="30" Width="60" HorizontalAlignment="Center" Command="{Binding DeleteExpense}"> Delete </Button>
+
+            </Grid>
+            
         </Grid>
 </Window>
