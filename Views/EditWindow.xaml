@@ -45,8 +45,20 @@
                 
                 <!-- Date Field -->
                 <Label Grid.Row="2" Grid.Column="0" Content="Date:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" />
-                <DatePicker Grid.Row="2" Grid.Column="1" Margin="5" Height="30" SelectedDate="{Binding CreatedDate}"  />
-
+                
+                <DatePicker Grid.Row="2" Grid.Column="1" Margin="5" Height="30" SelectedDate="{Binding CreatedDate}">
+                    <DatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DatePickerTextBox">
+                                        <TextBox Text="{Binding Path=SelectedDate, StringFormat='dd/MM/yyyy', RelativeSource={RelativeSource AncestorType=DatePicker}}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
                 
                 <!-- Type Field -->
                 <Label Grid.Row="3" Grid.Column="0" Content="Type:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" />

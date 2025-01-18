@@ -4,6 +4,7 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             xmlns:viewModels="clr-namespace:expense.ViewModels"
+            xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
             mc:Ignorable="d"
             Title="AddWindow" Height="450" Width="800">
         <Window.DataContext>
@@ -46,7 +47,21 @@
                 
                 <!-- Date Field -->
                 <Label Grid.Row="2" Grid.Column="0" Content="Date:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" />
-                <DatePicker Grid.Row="2" Grid.Column="1" Margin="5" Height="30" SelectedDate="{Binding CreatedDate}"  />
+             
+                <DatePicker Grid.Row="2" Grid.Column="1" Margin="5" Height="30" SelectedDate="{Binding CreatedDate}">
+                    <DatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DatePickerTextBox">
+                                        <TextBox Text="{Binding Path=SelectedDate, StringFormat='dd/MM/yyyy', RelativeSource={RelativeSource AncestorType=DatePicker}}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+
 
                 
                 <!-- Type Field -->

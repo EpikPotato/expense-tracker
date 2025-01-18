@@ -4,6 +4,8 @@ using System.ComponentModel;
 using expense.Database;
 using expense.Models;
 using expense.Views;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace expense.ViewModels
 {
@@ -12,6 +14,8 @@ namespace expense.ViewModels
         
         public event PropertyChangedEventHandler? PropertyChanged;
         public Expense? SelectedExpense{ get; set; }
+        public List<string> MonthYearList { get; set; } 
+        
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -23,6 +27,13 @@ namespace expense.ViewModels
         public MainViewModel()
         {
             Expenses = DatabaseService.GetExpenses();
+    
+            // Ensure the Date property exists in the Expense class
+            MonthYearList = Expenses
+                .Select(e => e.CreatedDate.ToString("MM/yyyy"))  // Convert DateTime to string in "MM/yyyy" format
+                .Distinct()  // Remove duplicates
+                .OrderBy(date => date)  // Sort the dates (string sorting)
+                .ToList();  // Convert to List<string>
         }
 
         private void AddItem()

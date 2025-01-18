@@ -48,9 +48,17 @@
               "target": "Package",
               "version": "[4.6.1, )"
             },
+            "LiveCharts.Wpf": {
+              "target": "Package",
+              "version": "[0.9.7, )"
+            },
             "System.Data.SQLite": {
               "target": "Package",
               "version": "[1.0.119, )"
+            },
+            "Xceed.Products.Wpf.Toolkit.Full": {
+              "target": "Package",
+              "version": "[4.6.24151.1544, )"
             }
           },
           "imports": [

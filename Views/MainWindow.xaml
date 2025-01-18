@@ -31,7 +31,8 @@
                     <ColumnDefinition Width="*" />                   
                 </Grid.ColumnDefinitions>
                 <TextBlock TextAlignment="Center" Grid.Row = "0" Grid.Column = "0" Grid.ColumnSpan = "3"> Expense Tracker </TextBlock>
-                <DatePicker Name="DatePicker" Grid.Row = "0" Grid.Column = "3"/>
+                
+                <ComboBox ItemsSource="{Binding MonthYearList}" Grid.Row = "0" Grid.Column = "3"></ComboBox>
             </Grid>
             <Grid Grid.Row = "1"> 
             <Grid.ColumnDefinitions>
@@ -51,7 +52,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="2*" />
                     
-                    <DataGridTextColumn Header="Date" Binding="{Binding CreatedDate}" Width="Auto" />
+                    <DataGridTextColumn Header="Date" Binding="{Binding CreatedDate ,StringFormat={}{0:dd/MM/yyyy}}" Width="Auto" />
                     <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="Auto" />
                     <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="2*" />
                 </DataGrid.Columns>
