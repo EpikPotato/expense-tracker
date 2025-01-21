@@ -11,7 +11,8 @@ namespace expense.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        
+        private string _selectedMonthYear;
+
         public event PropertyChangedEventHandler? PropertyChanged;
         public Expense? SelectedExpense{ get; set; }
         public List<string> MonthYearList { get; set; } 
@@ -24,18 +25,47 @@ namespace expense.ViewModels
         public RelayCommand AddExpense => new RelayCommand(execute => { AddItem();} , canExecute => { return true; });
         public RelayCommand EditExpense => new RelayCommand(execute => {EditItem();} , canExecute => { return true; });
 
+        public string SelectedMonthYear
+        {
+            get => _selectedMonthYear;
+
+            set
+            {
+                if (_selectedMonthYear != value)
+                {
+                    _selectedMonthYear = value;
+                    OnPropertyChanged(nameof(SelectedMonthYear));
+                    OnSelectionChanged(); // Handle the selection change
+                }
+            }
+        }
+
+        private void OnSelectionChanged()
+        
+        {
+            Console.WriteLine("OnSelectionChanged");
+           
+            var filteredExpenses = DatabaseService.GetExpenses().Where(e => e.CreatedDate.ToString("MM/yyyy") == SelectedMonthYear).ToList();
+          
+            Expenses.Clear();
+            foreach (var expense in filteredExpenses)
+            {
+                Expenses.Add(expense);
+            }
+        }
         public MainViewModel()
         {
             Expenses = DatabaseService.GetExpenses();
     
             // Ensure the Date property exists in the Expense class
             MonthYearList = Expenses
-                .Select(e => e.CreatedDate.ToString("MM/yyyy"))  // Convert DateTime to string in "MM/yyyy" format
-                .Distinct()  // Remove duplicates
-                .OrderBy(date => date)  // Sort the dates (string sorting)
-                .ToList();  // Convert to List<string>
+                .Select(e => e.CreatedDate.ToString("MM/yyyy"))  
+                .Distinct()  
+                .OrderBy(date => date)  
+                .ToList();  
+            
         }
-
+        
         private void AddItem()
         {
             var vm = new AddViewModel();

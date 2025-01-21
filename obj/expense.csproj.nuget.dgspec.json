@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\expense.csproj": {}
+    "C:\\Users\\Manh Duc\\RiderProjects\\expense-tracker\\expense.csproj": {}
   },
   "projects": {
-    "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\expense.csproj": {
+    "C:\\Users\\Manh Duc\\RiderProjects\\expense-tracker\\expense.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\expense.csproj",
+        "projectUniqueName": "C:\\Users\\Manh Duc\\RiderProjects\\expense-tracker\\expense.csproj",
         "projectName": "expense",
-        "projectPath": "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\expense.csproj",
-        "packagesPath": "C:\\Users\\manh duc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\obj\\",
+        "projectPath": "C:\\Users\\Manh Duc\\RiderProjects\\expense-tracker\\expense.csproj",
+        "packagesPath": "C:\\Users\\Manh Duc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Manh Duc\\RiderProjects\\expense-tracker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\manh duc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Manh Duc\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0-windows"
@@ -36,7 +36,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -80,7 +80,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Manh Duc\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

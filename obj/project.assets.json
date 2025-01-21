@@ -6678,19 +6678,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\manh duc\\.nuget\\packages\\": {}
+    "C:\\Users\\Manh Duc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\expense.csproj",
+      "projectUniqueName": "C:\\Users\\Manh Duc\\RiderProjects\\expense-tracker\\expense.csproj",
       "projectName": "expense",
-      "projectPath": "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\expense.csproj",
-      "packagesPath": "C:\\Users\\manh duc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\manh duc\\RiderProjects\\expense-tracker\\obj\\",
+      "projectPath": "C:\\Users\\Manh Duc\\RiderProjects\\expense-tracker\\expense.csproj",
+      "packagesPath": "C:\\Users\\Manh Duc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Manh Duc\\RiderProjects\\expense-tracker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\manh duc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Manh Duc\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0-windows"
@@ -6712,7 +6712,7 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
+        "auditMode": "all"
       },
       "SdkAnalysisLevel": "9.0.100"
     },
@@ -6756,11 +6756,51 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Manh Duc\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Data.SqlClient' 4.8.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8g2p-5pqh-5jmc",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net9.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Data.SqlClient' 4.8.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net9.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Net.Http' 4.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7jgj-8wvc-jh57",
+      "libraryId": "System.Net.Http",
+      "targetGraphs": [
+        "net9.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Security.Cryptography.X509Certificates' 4.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7mfr-774f-w5r9",
+      "libraryId": "System.Security.Cryptography.X509Certificates",
+      "targetGraphs": [
+        "net9.0-windows7.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",
