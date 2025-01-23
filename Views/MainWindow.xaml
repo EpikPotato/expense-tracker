@@ -43,7 +43,7 @@
             </Grid.ColumnDefinitions>
                 <Button  Grid.Column = "0" Command="{Binding AddExpense}">Add</Button>    
                 <Button  Grid.Column = "1" Command="{Binding EditExpense}">Edit</Button>    
-                <Button  Grid.Column = "2">Statistics </Button>    
+                <Button  Grid.Column = "2" Command="{Binding ShowStatistics}">Statistics </Button>    
                 
             </Grid> 
         </Grid> 

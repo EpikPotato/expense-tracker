@@ -24,6 +24,7 @@ namespace expense.ViewModels
         public ObservableCollection<Expense> Expenses { get; set; }
         public RelayCommand AddExpense => new RelayCommand(execute => { AddItem();} , canExecute => { return true; });
         public RelayCommand EditExpense => new RelayCommand(execute => {EditItem();} , canExecute => { return true; });
+        public RelayCommand ShowStatistics => new RelayCommand(execute => {OpenStatisticsWindow();} , canExecute => { return true; });
 
         public string SelectedMonthYear
         {
@@ -39,13 +40,13 @@ namespace expense.ViewModels
                 }
             }
         }
-
+        
         private void OnSelectionChanged()
         
         {
             Console.WriteLine("OnSelectionChanged");
-           
-            var filteredExpenses = DatabaseService.GetExpenses().Where(e => e.CreatedDate.ToString("MM/yyyy") == SelectedMonthYear).ToList();
+
+            var filteredExpenses = FilterExpenses();
           
             Expenses.Clear();
             foreach (var expense in filteredExpenses)
@@ -53,11 +54,19 @@ namespace expense.ViewModels
                 Expenses.Add(expense);
             }
         }
+
+        private List<Expense> FilterExpenses()
+        {
+            List<Expense> result = new List<Expense>();
+            result = DatabaseService.GetExpenses().Where(e => e.CreatedDate.ToString("MM/yyyy") == SelectedMonthYear)
+                .ToList();
+            return result;
+        }
         public MainViewModel()
         {
             Expenses = DatabaseService.GetExpenses();
     
-            // Ensure the Date property exists in the Expense class
+           
             MonthYearList = Expenses
                 .Select(e => e.CreatedDate.ToString("MM/yyyy"))  
                 .Distinct()  
@@ -65,7 +74,16 @@ namespace expense.ViewModels
                 .ToList();  
             
         }
-        
+
+        private void OpenStatisticsWindow()
+        {
+            var vm = new StatisticsViewModel(FilterExpenses());
+            StatisticsWindow statisticsWindow = new StatisticsWindow();
+            statisticsWindow.DataContext = vm;
+            
+            
+            statisticsWindow.ShowDialog();
+        }
         private void AddItem()
         {
             var vm = new AddViewModel();
@@ -87,7 +105,7 @@ namespace expense.ViewModels
         {
             if (SelectedExpense == null) return;
 
-            Console.WriteLine(SelectedExpense.Id);
+            
             var vm = new EditViewModel(SelectedExpense);
             
             
@@ -112,6 +130,12 @@ namespace expense.ViewModels
             {
                 Expenses.Add(expense);
             }
+            MonthYearList = Expenses
+                .Select(e => e.CreatedDate.ToString("MM/yyyy"))  
+                .Distinct()  
+                .OrderBy(date => date)  
+                .ToList();  
+            OnPropertyChanged(nameof(MonthYearList));
         }
     }
 }
